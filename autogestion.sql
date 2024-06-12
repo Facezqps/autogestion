@@ -44,7 +44,10 @@ CREATE TABLE `estudiantes` (
   `studentId` int NOT NULL AUTO_INCREMENT,
   `student_firtsname` varchar(45) NOT NULL,
   `estudent_lastname` varchar(45) NOT NULL,
-  PRIMARY KEY (`studentId`)
+  `courses` int DEFAULT NULL,
+  PRIMARY KEY (`studentId`),
+  KEY `cursos_estudiant_matriculacion_idx` (`courses`),
+  CONSTRAINT `cursos_estudiant_matriculacion` FOREIGN KEY (`courses`) REFERENCES `cursos` (`courseid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +60,4 @@ CREATE TABLE `estudiantes` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-12 11:07:19
+-- Dump completed on 2024-06-12 11:27:23
